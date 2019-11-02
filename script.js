@@ -72,9 +72,21 @@ for (let i = 0; i < arrLine5.length; i++) {
 const button = document.getElementsByClassName('key');
 
 keyboard.addEventListener('mousedown', () => {
+
     for (var i = 0; i < button.length; i++) {
     event.target.style.borderRadius = '50%';
+
+    // const focus = document.querySelector('.textarea');
+    // focus.focus();
+    // const el = button[i].innerText;
+    // const p = document.createElement('p');
+    // p.innerHTML = el;
+    // focus.appendChild(p);
     }
+    // const focus = document.querySelector('.textarea');
+    // focus.focus();
+    // const el = button[i].innerHTML;
+    // focus.appendChild(el);
 });
 
 keyboard.addEventListener('mouseup', () => {
@@ -85,7 +97,6 @@ keyboard.addEventListener('mouseup', () => {
 
 window.addEventListener('keydown', (event) => {
     for (var i = 0; i < button.length; i++) {
-        console.log(event.key);
     if (event.key == button[i].innerText) {
         button[i].style.borderRadius = '50%';
     } else if (event.key == 'Control') {
@@ -105,6 +116,9 @@ window.addEventListener('keydown', (event) => {
         button[28].style.borderRadius = '50%';
     }
     }
+
+    const focus = document.querySelector('.textarea');
+    focus.focus();
 });
 
 window.addEventListener('keyup', (event) => {

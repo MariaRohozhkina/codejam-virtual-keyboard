@@ -26,6 +26,7 @@
     background: #d6ffe1;
     font-size: 16px;
     font-family: monospace;
+    cursor: pointer;
 }
 
 .row1 button:nth-child(14) {
