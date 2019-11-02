@@ -1,0 +1,106 @@
+.container {
+    text-align: center;
+}
+
+ .textarea {
+     font-size: 20px;
+ }
+
+.keyboard {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 300px;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+}
+
+.key {
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+    margin-top: 5px;
+    background: #d6ffe1;
+    font-size: 16px;
+    font-family: monospace;
+}
+
+.row1 button:nth-child(14) {
+    width: 100px;
+    background: #005717;
+}
+
+.row2 button:nth-child(1) {
+    width: 47px;
+    background: #005717;
+}
+
+.row2 button:nth-child(15) {
+    width: 48px;
+    background: #005717;
+}
+
+.row3 button:nth-child(1) {
+    width: 92px;
+    background: #005717;
+}
+
+.row3 button:nth-child(13) {
+    width: 93px;
+    background: #005717;
+}
+
+.row4 button:nth-child(1) {
+    width: 92px;
+    background: #005717;
+}
+
+.row4 button:nth-child(13) {
+    width: 93px;
+    background: #005717;
+}
+
+.row5 button:nth-child(1) {
+    width: 52px;
+    background: #005717;
+}
+
+.row5 button:nth-child(4) {
+    width: 305px;
+}
+
+.row5 button:nth-child(9) {
+    width: 48px;
+    background: #005717;
+}
+
+.row5 button:nth-child(2) {
+    background: #005717;
+}
+
+.row5 button:nth-child(3) {
+    background: #005717;
+}
+
+.row5 button:nth-child(5) {
+    background: #005717;
+}
+
+.row5 button:nth-child(6) {
+    background: #005717;
+}
+
+.row5 button:nth-child(7) {
+    background: #005717;
+}
+
+.row5 button:nth-child(8) {
+    background: #005717;
+}
+
+.row4 button:nth-child(12) {
+    background: #005717;
+}
