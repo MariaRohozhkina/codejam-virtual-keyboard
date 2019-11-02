@@ -28,11 +28,11 @@ const row5 = document.createElement('div');
 row5.className = 'row row5';
 keyboard.appendChild(row5);
 
-const arrLine1 = ['ё', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'backspace'];
-const arrLine2 = ['Tab','й', 'ц', 'у', 'к', 'е', 'н','г', 'ш', 'щ', 'з', 'х','ъ','/', 'DEL'];
+const arrLine1 = ['ё', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace'];
+const arrLine2 = ['Tab','й', 'ц', 'у', 'к', 'е', 'н','г', 'ш', 'щ', 'з', 'х','ъ','/', 'Esc'];
 const arrLine3 = ['CapsLock','ф','ы','в','а','п','р','о','л','д','ж','э','Enter'];
 const arrLine4 = ['Shift','я','ч','с','м','и','т','ь','б','ю','.','▲','Shift'];
-const arrLine5 = ['Ctrl','Win','Alt','','Alt','◄','▼','►','Ctrl'];
+const arrLine5 = ['Ctrl','Cmd','Alt','','Alt','◄','▼','►','Ctrl'];
 
 for (let i = 0; i < arrLine1.length; i++) {
 const key = document.createElement('button');
@@ -68,3 +68,49 @@ for (let i = 0; i < arrLine5.length; i++) {
     key.innerText = arrLine5[i];
     row5.appendChild(key);
 }
+
+const button = document.getElementsByClassName('key');
+
+keyboard.addEventListener('mousedown', () => {
+    for (var i = 0; i < button.length; i++) {
+    event.target.style.borderRadius = '50%';
+    }
+});
+
+keyboard.addEventListener('mouseup', () => {
+    for (var i = 0; i < button.length; i++) {
+        event.target.style.borderRadius = 'initial';
+    }
+});
+
+window.addEventListener('keydown', (event) => {
+    for (var i = 0; i < button.length; i++) {
+        console.log(event.key);
+    if (event.key == button[i].innerText) {
+        button[i].style.borderRadius = '50%';
+    } else if (event.key == 'Control') {
+        button[55].style.borderRadius = '50%';
+        button[63].style.borderRadius = '50%';
+    } else if (event.key == 'ArrowUp') {
+        button[53].style.borderRadius = '50%';
+    } else if (event.key == 'ArrowLeft') {
+        button[60].style.borderRadius = '50%';
+    } else if (event.key == 'ArrowRight') {
+        button[62].style.borderRadius = '50%';
+    } else if (event.key == 'ArrowDown') {
+        button[61].style.borderRadius = '50%';
+    } else if (event.key == 'Meta') {
+        button[56].style.borderRadius = '50%';
+    } else if (event.key == 'Escape') {
+        button[28].style.borderRadius = '50%';
+    }
+    }
+});
+
+window.addEventListener('keyup', (event) => {
+    for (var i = 0; i < button.length; i++) {
+        button[i].style.borderRadius = '0';
+    }
+    }
+);
+
