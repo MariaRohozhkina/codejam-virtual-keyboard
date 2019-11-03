@@ -72,26 +72,24 @@ for (let i = 0; i < arrLine5.length; i++) {
 const button = document.getElementsByClassName('key');
 
 keyboard.addEventListener('mousedown', () => {
-
     for (var i = 0; i < button.length; i++) {
     event.target.style.borderRadius = '50%';
-
-    // const focus = document.querySelector('.textarea');
-    // focus.focus();
-    // const el = button[i].innerText;
-    // const p = document.createElement('p');
-    // p.innerHTML = el;
-    // focus.appendChild(p);
+    event.target.style.boxShadow = '3px 2px 15px 13px rgba(173,125,173,1)';
     }
-    // const focus = document.querySelector('.textarea');
-    // focus.focus();
-    // const el = button[i].innerHTML;
-    // focus.appendChild(el);
 });
+
+keyboard.addEventListener('click', (еvent) => {
+    const focus = document.querySelector('.textarea');
+    focus.focus();
+
+    let el = event.target.innerText;
+    focus.innerHTML += el;
+})
 
 keyboard.addEventListener('mouseup', () => {
     for (var i = 0; i < button.length; i++) {
         event.target.style.borderRadius = 'initial';
+        event.target.style.boxShadow = 'none';
     }
 });
 
@@ -99,21 +97,30 @@ window.addEventListener('keydown', (event) => {
     for (var i = 0; i < button.length; i++) {
     if (event.key == button[i].innerText) {
         button[i].style.borderRadius = '50%';
+        button[i].style.boxShadow = '3px 2px 15px 13px rgba(173,125,173,1)';
     } else if (event.key == 'Control') {
         button[55].style.borderRadius = '50%';
         button[63].style.borderRadius = '50%';
+        button[55].style.boxShadow = '3px 2px 15px 13px rgba(173,125,173,1)';
+        button[63].style.boxShadow = '3px 2px 15px 13px rgba(173,125,173,1)';
     } else if (event.key == 'ArrowUp') {
         button[53].style.borderRadius = '50%';
+        button[53].style.boxShadow = '3px 2px 15px 13px rgba(173,125,173,1)';
     } else if (event.key == 'ArrowLeft') {
         button[60].style.borderRadius = '50%';
+        button[60].style.boxShadow = '3px 2px 15px 13px rgba(173,125,173,1)';
     } else if (event.key == 'ArrowRight') {
         button[62].style.borderRadius = '50%';
+        button[62].style.boxShadow = '3px 2px 15px 13px rgba(173,125,173,1)';
     } else if (event.key == 'ArrowDown') {
         button[61].style.borderRadius = '50%';
+        button[61].style.boxShadow = '3px 2px 15px 13px rgba(173,125,173,1)';
     } else if (event.key == 'Meta') {
         button[56].style.borderRadius = '50%';
+        button[56].style.boxShadow = '3px 2px 15px 13px rgba(173,125,173,1)';
     } else if (event.key == 'Escape') {
         button[28].style.borderRadius = '50%';
+        button[28].style.boxShadow = '3px 2px 15px 13px rgba(173,125,173,1)';
     }
     }
 
@@ -124,6 +131,7 @@ window.addEventListener('keydown', (event) => {
 window.addEventListener('keyup', (event) => {
     for (var i = 0; i < button.length; i++) {
         button[i].style.borderRadius = '0';
+        button[i].style.boxShadow = 'none';
     }
     }
 );
