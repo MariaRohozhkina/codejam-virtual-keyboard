@@ -28,11 +28,16 @@ const row5 = document.createElement('div');
 row5.className = 'row row5';
 keyboard.appendChild(row5);
 
+// Russian language 
 const arrLine1 = ['ё', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '=', 'Backspace'];
 const arrLine2 = ['Tab','й', 'ц', 'у', 'к', 'е', 'н','г', 'ш', 'щ', 'з', 'х','ъ','/', 'Esc'];
 const arrLine3 = ['CapsLock','ф','ы','в','а','п','р','о','л','д','ж','э','Enter'];
 const arrLine4 = ['Shift','я','ч','с','м','и','т','ь','б','ю','.','▲','Shift'];
 const arrLine5 = ['Ctrl','Cmd','Alt','','Alt','◄','▼','►','Ctrl'];
+const arrLine6 = ['Tab','й', 'ц', 'у', 'к', 'е', 'н','г', 'ш', 'щ', 'з', 'х','ъ','/', 'Esc', 'CapsLock','ф','ы','в','а','п','р','о','л','д','ж','э','Enter', 'Shift','я','ч','с','м','и','т','ь','б','ю','.','▲','Shift', 'Ctrl','Cmd','Alt','','Alt','◄','▼','►','Ctrl'];
+
+// English language
+const arrLine2En = ['Tab','q', 'w', 'e', 'r', 't', 'y','u', 'i', 'o', 'p', '[',']', '\\', 'Esc', 'CapsLock','a','s','d','f','g','h','j','k','l',';','\'','Enter', 'Shift','z','x','c','v','b','n','m',',','.','/','▲','Shift', 'Ctrl','Cmd','Alt','','Alt','◄','▼','►','Ctrl'];
 
 for (let i = 0; i < arrLine1.length; i++) {
 const key = document.createElement('button');
@@ -136,3 +141,21 @@ window.addEventListener('keyup', (event) => {
     }
 );
 
+window.addEventListener('keydown', (event) => {
+    let j = 0;
+    let k = 0;
+    if (event.ctrlKey && event.shiftKey && button[0].innerText == 'ё') { 
+        for (var i = 14; i < button.length; i++) {
+                button[i].innerText = arrLine2En[j];
+                j++
+        }
+        button[0].innerText = '`';
+    } else if (event.ctrlKey && event.shiftKey && button[0].innerText == '`') {
+        for (var i = 14; i < button.length; i++) {
+            button[i].innerText = arrLine6[k];
+            k++
+        }
+        button[0].innerText = 'ё';
+    }
+    }
+);
