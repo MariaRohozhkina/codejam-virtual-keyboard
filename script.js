@@ -147,15 +147,39 @@ window.addEventListener('keydown', (event) => {
     if (event.ctrlKey && event.shiftKey && button[0].innerText == 'ё') { 
         for (var i = 14; i < button.length; i++) {
                 button[i].innerText = arrLine2En[j];
-                j++
+                j++;
+                button[i].className += ' english';
         }
         button[0].innerText = '`';
+        localStorage.setItem('button[i].className', button[26].className);
     } else if (event.ctrlKey && event.shiftKey && button[0].innerText == '`') {
         for (var i = 14; i < button.length; i++) {
             button[i].innerText = arrLine6[k];
-            k++
+            k++;
+            button[i].className = 'key';
         }
         button[0].innerText = 'ё';
+        localStorage.setItem('button[i].className', button[26].className);
     }
     }
 );
+
+
+let language = localStorage.getItem('button[i].className');
+console.log(language);
+window.onload = function() {
+
+    const keys = document.getElementsByClassName('key');
+
+    for (let i = 0; i < keys.length; i++) {
+        keys[i].className = language;
+    }
+
+    let p = 0;
+    if (keys[26].className == 'key english' || keys[26].className == 'key english english' || keys[26].className == 'key english english english' || keys[26].className == 'key english english english english') {
+        for (let o = 14; o < keys.length; o++) {
+            keys[o].innerText = arrLine2En[p];
+            p++;
+    }
+    }
+}
