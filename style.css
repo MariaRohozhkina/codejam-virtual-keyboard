@@ -4,13 +4,15 @@
 
  .textarea {
      font-size: 20px;
+     color: transparent;
+     text-shadow : 0 0 0 #000; 
  }
 
 .keyboard {
     display: flex;
     flex-direction: column;
-    width: 50%;
-    height: 300px;
+    width: 48%;
+    height: 240px;
     margin: 0 auto;
 }
 
@@ -23,10 +25,11 @@
     height: 40px;
     margin-right: 5px;
     margin-top: 5px;
-    background: #d6ffe1;
+    background: #b0ddb0;
     font-size: 16px;
     font-family: monospace;
     cursor: pointer;
+    color: #d4af37;
 }
 
 .row1 button:nth-child(14) {
@@ -104,4 +107,13 @@
 
 .row4 button:nth-child(12) {
     background: #005717;
+}
+
+textarea:focus {
+    background-color: transparent;
+    outline-color: bisque;
+}
+
+.uppercase {
+    text-transform: uppercase;
 }

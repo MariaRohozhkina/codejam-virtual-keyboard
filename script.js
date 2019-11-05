@@ -33,11 +33,11 @@ const arrLine1 = ['ё', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '-', '
 const arrLine2 = ['Tab','й', 'ц', 'у', 'к', 'е', 'н','г', 'ш', 'щ', 'з', 'х','ъ','/', 'Esc'];
 const arrLine3 = ['CapsLock','ф','ы','в','а','п','р','о','л','д','ж','э','Enter'];
 const arrLine4 = ['Shift','я','ч','с','м','и','т','ь','б','ю','.','▲','Shift'];
-const arrLine5 = ['Ctrl','Cmd','Alt','','Alt','◄','▼','►','Ctrl'];
-const arrLine6 = ['Tab','й', 'ц', 'у', 'к', 'е', 'н','г', 'ш', 'щ', 'з', 'х','ъ','/', 'Esc', 'CapsLock','ф','ы','в','а','п','р','о','л','д','ж','э','Enter', 'Shift','я','ч','с','м','и','т','ь','б','ю','.','▲','Shift', 'Ctrl','Cmd','Alt','','Alt','◄','▼','►','Ctrl'];
+const arrLine5 = ['Ctrl','Cmd','Alt', 'Space', 'Alt','◄','▼','►','Ctrl'];
+const arrLine6 = ['Tab','й', 'ц', 'у', 'к', 'е', 'н','г', 'ш', 'щ', 'з', 'х','ъ','/', 'Esc', 'CapsLock','ф','ы','в','а','п','р','о','л','д','ж','э','Enter', 'Shift','я','ч','с','м','и','т','ь','б','ю','.','▲','Shift', 'Ctrl','Cmd','Alt','Space','Alt','◄','▼','►','Ctrl'];
 
 // English language
-const arrLine2En = ['Tab','q', 'w', 'e', 'r', 't', 'y','u', 'i', 'o', 'p', '[',']', '\\', 'Esc', 'CapsLock','a','s','d','f','g','h','j','k','l',';','\'','Enter', 'Shift','z','x','c','v','b','n','m',',','.','/','▲','Shift', 'Ctrl','Cmd','Alt','','Alt','◄','▼','►','Ctrl'];
+const arrLine2En = ['Tab','q', 'w', 'e', 'r', 't', 'y','u', 'i', 'o', 'p', '[',']', '\\', 'Esc', 'CapsLock','a','s','d','f','g','h','j','k','l',';','\'','Enter', 'Shift','z','x','c','v','b','n','m',',','.','/','▲','Shift', 'Ctrl','Cmd','Alt','Space','Alt','◄','▼','►','Ctrl'];
 
 for (let i = 0; i < arrLine1.length; i++) {
 const key = document.createElement('button');
@@ -83,20 +83,46 @@ keyboard.addEventListener('mousedown', () => {
     }
 });
 
-keyboard.addEventListener('click', (еvent) => {
-    const focus = document.querySelector('.textarea');
-    focus.focus();
-
-    let el = event.target.innerText;
-    focus.innerHTML += el;
-})
-
 keyboard.addEventListener('mouseup', () => {
     for (var i = 0; i < button.length; i++) {
         event.target.style.borderRadius = 'initial';
         event.target.style.boxShadow = 'none';
     }
 });
+
+keyboard.addEventListener('click', (еvent) => {
+    const focus = document.querySelector('.textarea');
+    focus.focus();
+
+    let el = event.target.innerText;
+    if (el !== 'Backspace' && el !== 'Space' && el !== 'Tab' && el !== 'Esc' && el !== 'CapsLock' && el !== 'Enter' && el !== 'Shift' && el !== 'Ctrl' && el !== 'Cmd' && el !== 'Alt' && el !== arrLine1 && el !== document.querySelector('.row1').innerText && el !== document.querySelector('.row2').innerText && el !== document.querySelector('.row3').innerText && el !== document.querySelector('.row4').innerText && el !== document.querySelector('.row5').innerText) {
+        focus.value += el;
+    } else if (el == 'Backspace') {
+        let str = focus.value;
+        focus.value = str.substr(0, str.length - 1);
+    } else if (el == 'Space') {
+        focus.value += ' ';
+    } else if (el == 'Enter') {
+        focus.value += '\n';
+    } else if (el == 'CapsLock' && button[15].innerText == 'й' || button[15].innerText == 'q') {
+        let l = 0;
+        button[l].className += ' uppercase';
+        for (var i = 15; i < 27; i++) {
+            button[i].className += ' uppercase';
+    }
+        for (var j = 30; j < 41; j++) {
+        button[j].className += ' uppercase';
+    }
+    for (var k = 43; k < 52; k++) {
+        button[k].className += ' uppercase';
+    }} else if (el == 'CapsLock' && button[15].innerText == 'Й' || button[15].innerText == 'Q') {
+        button[0].classList.remove('uppercase');
+        for (var d = 0; d < button.length; d++) {
+            button[d].classList.remove('uppercase');
+        }
+    }
+    }
+)
 
 window.addEventListener('keydown', (event) => {
     for (var i = 0; i < button.length; i++) {
@@ -166,7 +192,6 @@ window.addEventListener('keydown', (event) => {
 
 
 let language = localStorage.getItem('button[i].className');
-console.log(language);
 window.onload = function() {
 
     const keys = document.getElementsByClassName('key');
